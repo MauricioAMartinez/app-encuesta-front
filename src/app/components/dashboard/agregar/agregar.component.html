@@ -1,0 +1,35 @@
+<div mat-dialog-content>
+  <mat-spinner class="spinner" *ngIf="loading" diameter="50" ></mat-spinner>
+  <form  *ngIf="formulario" [formGroup]="form" (ngSubmit)="agregar()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        [formControl]="email"
+        placeholder="Ex. pat@example.com"
+        formControlName="correo"
+      />
+      <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="email.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="margin: 5px" appearance="fill">
+      <mat-label>Plantilla</mat-label>
+      <mat-select formControlName="plantilla">
+        <mat-option value="1">Interno</mat-option>
+        <mat-option value="2">Externo</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions *ngIf="formulario">
+  <button color="warn" mat-button  (click)="onNoClick()">Cancelar</button>
+  <button  [disabled]="form.invalid" type="submit" color="primary" mat-button (click)="agregar()">Agregar</button>
+  
+</div>
+

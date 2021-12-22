@@ -1,0 +1,15 @@
+export interface respuesta{
+    pregunta1: string,
+    pregunta2: string,
+    pregunta3: string,
+    pregunta4: string,
+    pregunta5: string,
+    pregunta6: number,
+    pregunta7: number,
+    pregunta8: number,
+    pregunta9: number,
+    pregunta10: number,
+    pregunta11: number,
+    pregunta12: number,
+    pregunta13: string,
+}

@@ -1,0 +1,80 @@
+<mat-table *ngIf="dataTable" [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="Fecha">
+      <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.created_at}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="Nombre completo cliente">
+      <mat-header-cell *matHeaderCellDef> Nombre completo cliente </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_uno}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="Campaña (CECO)">
+      <mat-header-cell *matHeaderCellDef> Campaña (CECO) </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_dos}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="Área en la que se desempeña">
+      <mat-header-cell *matHeaderCellDef> Área en la que se desempeña </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_tres}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="PO con quien trabajó el proyecto">
+      <mat-header-cell *matHeaderCellDef> PO con quien trabajó el proyecto </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_cuatro}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="Gerente quien recibió el requerimiento">
+      <mat-header-cell *matHeaderCellDef> Gerente quien recibió el requerimiento </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_cinco}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="¿Me encuentro satisfecho con el producto/desarrollo/servicio entregado?">
+      <mat-header-cell *matHeaderCellDef> ¿Me encuentro satisfecho con el producto/desarrollo/servicio entregado? </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_seis}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="¿El tiempo tomado en el requerimiento de este producto/desarrollo/servicio fue adecuado?">
+      <mat-header-cell *matHeaderCellDef> ¿El tiempo tomado en el requerimiento de este producto/desarrollo/servicio fue adecuado? </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_siete}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="¿El tiempo tomado para desarrollar el producto/desarrollo/servicio fue adecuado">
+      <mat-header-cell *matHeaderCellDef> ¿El tiempo tomado para desarrollar el producto/desarrollo/servicio fue adecuado </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_ocho}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="¿Qué tan receptivo ha sido nuestro equipo de servicio al cliente a sus preguntas y preocupaciones?">
+      <mat-header-cell *matHeaderCellDef> ¿Qué tan receptivo ha sido nuestro equipo de servicio al cliente a sus preguntas y preocupaciones? </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_nueve}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="¿Me encuentro satisfecho con la compañía, en general?">
+      <mat-header-cell *matHeaderCellDef> ¿Me encuentro satisfecho con la compañía, en general?</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_diez}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="¿Nuestros productos y servicios superaron sus expectativas">
+      <mat-header-cell *matHeaderCellDef> ¿Nuestros productos y servicios superaron sus expectativas </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_once}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="De acuerdo a su experiencia, ¿estaría dispuesto a recomendar a Montechelo a un colega o amigo?">
+      <mat-header-cell *matHeaderCellDef> De acuerdo a su experiencia, ¿estaría dispuesto a recomendar a Montechelo a un colega o amigo?</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_doce}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="comentarios">
+      <mat-header-cell *matHeaderCellDef> comentarios</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.respuesta_trece}} </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  
+  <div *ngIf="noData" class="container">
+    <label>No se encuentran respuestas para mostrar </label>
+  </div>

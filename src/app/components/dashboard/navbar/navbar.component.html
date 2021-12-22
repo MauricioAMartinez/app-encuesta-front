@@ -1,0 +1,12 @@
+<p>
+  <mat-toolbar>
+    <span>App-Encuesta</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="primary" [routerLink]="'/dashboard/inicio'" >Inicio</button>
+    <button style="margin-left: 5px;" mat-raised-button color="primary" [routerLink]="'/dashboard/informes'"  >Informes</button>
+    <button style="margin-left: 5px;" mat-raised-button color="primary" (click)="openDialog()" >Agregar</button>
+    <button style="margin-left: 5px;" mat-raised-button color="primary"  (click)="downloadExcel()" >Descargar</button>
+    <span class="example-spacer"></span>
+    <img class="montechelo" src="https://www.montechelo.com.co/wp-content/themes/Montechelo/img/Brandcolor.png">
+  </mat-toolbar>
+</p>

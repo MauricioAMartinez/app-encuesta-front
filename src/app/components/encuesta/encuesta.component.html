@@ -1,0 +1,200 @@
+<div class="container" *ngIf="encuesta" >
+  <div class="row">
+    <mat-card >
+      <img
+        class="montechelo"
+        src="https://www.montechelo.com.co/wp-content/themes/Montechelo/img/Brandcolor.png"
+      />
+    </mat-card>
+  </div>
+  <mat-grid-list cols="3" rowHeight="50px">
+    <mat-grid-tile [colspan]="3" [rowspan]="1">
+      <h3>
+        Nos gustaría invitarlo, como cliente, a participar en esta encuesta de
+        satisfacción para tomar una decisión o proporcionar un mejor servicio en
+        el futuro.
+      </h3></mat-grid-tile
+    >
+
+    <form [formGroup]="form" (ngSubmit)="agregar()" >
+      <!-- #DatosEncuesta -->
+      <mat-grid-tile [colspan]="1" [rowspan]="2">
+        <!-- #Nombre -->
+        <mat-form-field class="example-full-width" appearance="legacy">
+          <mat-label>Nombre Completo</mat-label>
+          <input matInput formControlName="pregunta1" autocomplete="off" />
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="2">
+        <!-- #Campaña(CECO) -->
+        <mat-form-field class="example-full-width" appearance="legacy">
+          <mat-label>Campaña(CECO)</mat-label>
+          <input matInput formControlName="pregunta2" autocomplete="off" />
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="2">
+        <!-- #Area en la que se desempeña -->
+        <mat-form-field class="example-full-width" appearance="legacy">
+          <mat-label>Area en la que se desempeña</mat-label>
+          <input matInput formControlName="pregunta3" autocomplete="off" />
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="2">
+        <!-- #PO con quien trabajo el proyecto -->
+        <mat-form-field class="example-full-width" appearance="legacy">
+          <mat-label>PO con quien trabajo el proyecto</mat-label>
+          <input matInput formControlName="pregunta4" autocomplete="off" />
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="2">
+        <!-- #Gerente quien recibió el proyecto -->
+        <mat-form-field class="example-full-width" appearance="legacy">
+          <mat-label>Gerente quien recibió el proyecto</mat-label>
+          <input matInput formControlName="pregunta5" autocomplete="off" />
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <h3>
+          Encuesta de satisfacción: ¿Cuál es tu rango de satisfacción con
+          nuestra ayuda? siendo 1 no satisfecho y 5 totalmente satisfecho
+        </h3>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <!-- #¿Me encuentro satisfecho con el producto/desarrollo/servicio entregado? -->
+        <label
+          >¿Me encuentro satisfecho con el producto/desarrollo/servicio
+          entregado?</label
+        >
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <!-- #Select -->
+        <mat-select formControlName="pregunta6">
+          <mat-option *ngFor="let item of calificacion" [value]="item.value">
+            {{ item.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <!-- #¿El tiempo tomado en el requerimiento de este producto/desarrollo/servicio fue adecuado? -->
+        <label
+          >¿El tiempo tomado en el requerimiento de este
+          producto/desarrollo/servicio fue adecuado?</label
+        >
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+       <!-- #Select -->
+       <mat-select formControlName="pregunta7">
+        <mat-option *ngFor="let item of calificacion" [value]="item.value">
+          {{ item.viewValue }}
+        </mat-option>
+      </mat-select>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <!-- #¿El tiempo tomado para desarrollar el producto/desarrollo/servicio fue adecuado?-->
+        <label
+          >¿El tiempo tomado para desarrollar el producto/desarrollo/servicio
+          fue adecuado?</label
+        >
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+       <!-- #Select -->
+       <mat-select formControlName="pregunta8">
+        <mat-option *ngFor="let item of calificacion" [value]="item.value">
+          {{ item.viewValue }}
+        </mat-option>
+      </mat-select>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <!-- #¿Qué tan receptivo ha sido nuestro equipo de servicio al cliente a sus preguntas y preocupaciones? -->
+        <label
+          >¿Qué tan receptivo ha sido nuestro equipo de servicio al cliente a
+          sus preguntas y preocupaciones?</label
+        >
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <!-- #Select -->
+        <mat-select formControlName="pregunta9">
+          <mat-option *ngFor="let item of calificacion" [value]="item.value">
+            {{ item.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <!-- #¿Me encuentro satisfecho con la compañía, en general? -->
+        <label>¿Me encuentro satisfecho con la compañía, en general?</label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <!-- #Select -->
+        <mat-select formControlName="pregunta10">
+          <mat-option *ngFor="let item of calificacion" [value]="item.value">
+            {{ item.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <!-- #¿Nuestros productos y servicios superaron sus expectativas?-->
+        <label
+          >¿Nuestros productos y servicios superaron sus expectativas?</label
+        >
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <!-- #Select -->
+        <mat-select formControlName="pregunta11">
+          <mat-option *ngFor="let item of calificacion" [value]="item.value">
+            {{ item.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <!-- #¿De acuerdo a su experiencia, ¿estaría dispuesto a recomendar a Montechelo a un colega o amigo?-->
+        <label
+          >De acuerdo a su experiencia, ¿estaría dispuesto a recomendar a
+          Montechelo a un colega o amigo?</label
+        >
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <!-- #Select -->
+        <mat-select formControlName="pregunta12">
+          <mat-option *ngFor="let item of calificacion" [value]="item.value">
+            {{ item.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <!-- #Comentarios-->
+        <label>Comentarios</label>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="3" [rowspan]="2">
+        <!-- #Comentarios-->
+        <mat-form-field style="width: 50%" appearance="fill">
+          <mat-label>Comentarios</mat-label>
+          <textarea formControlName="pregunta13" matInput></textarea>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="3" [rowspan]="2">
+        <!-- #confirmacion-->
+        <button
+          mat-raised-button
+          class="submit"
+          [disabled]="form.invalid"
+          color="primary"
+        >
+          Enviar
+        </button>
+      </mat-grid-tile>
+    </form>
+  </mat-grid-list>
+</div>
+
+<div class="finEncuesta" *ngIf="finEncuesta">
+  <img src="https://www.questionpro.com/userimages/site_media/agradecimiento-2-1.png" alt="">
+</div>

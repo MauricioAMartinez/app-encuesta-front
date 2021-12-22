@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row" style="text-align: center">
+    <mat-spinner class="spinner" *ngIf="loading" diameter="50" ></mat-spinner>
+    <mat-card *ngIf="!loading">
+      <img height="150px img" src="./assets/img/ImagenUsuario.png" />
+      <br>
+      <mat-card-title>Login</mat-card-title>
+      <br>
+      <form  [formGroup]="form" (ngSubmit)="ingresar()">
+        <mat-form-field class="example-full-width ancho" appearance="fill">
+          <mat-label>Usuario</mat-label>
+          <input
+            type="text"
+            autocomplete="off"
+            matInput
+            placeholder="UserExample"
+            formControlName="usuario"
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width ancho" appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input
+            type="password"
+            autocomplete="off"
+            matInput
+            placeholder="********"
+            formControlName="password"
+          />
+        </mat-form-field>
+
+        <mat-card-actions>
+          <br />
+          <button [disabled]="form.invalid"  type="submit" mat-raised-button color="primary">
+            Ingresar
+          </button>
+          <br />
+    <img  class="monechelo" src="https://www.montechelo.com.co/wp-content/themes/Montechelo/img/Brandcolor.png" alt="">
+        </mat-card-actions>
+      </form>
+    </mat-card>
+    
+  </div>
+</div>

@@ -14,72 +14,72 @@ import { CookieService } from 'ngx-cookie-service';
 export class LoginComponent implements OnInit {
 
 
-  usuario: Usuario [] = [] ;
-  form : FormGroup;
+  usuario: Usuario[] = [];
+  form: FormGroup;
   loading = false;
 
   constructor(private fb: FormBuilder,
-              private snackBar: MatSnackBar,
-              private _usuarioService: UsuarioService, 
-              private cookieService:CookieService,
-              private router: Router) {
-                
+    private snackBar: MatSnackBar,
+    private _usuarioService: UsuarioService,
+    private cookieService: CookieService,
+    private router: Router) {
+
     this.form = this.fb.group({
-      usuario: ['',Validators.required],
-      password: ['',Validators.required],
+      usuario: ['', Validators.required],
+      password: ['', Validators.required],
     })
   }
 
   ngOnInit(): void {
 
-    
+
   }
 
-  ingresar(){
-    
+  ingresar() {
 
-    const usuario ={
-      usuario : this.form.value.usuario,
-      password : this.form.value.password
+    const usuario = {
+      usuario: this.form.value.usuario,
+      password: this.form.value.password
     }
 
-   
-    this._usuarioService.getUser(usuario).subscribe((data:any)=>{
+    this._usuarioService.getUser(usuario).subscribe((data: any) => {
 
+      this.usuario = data;
 
-    this.usuario = data;
-    
-    this.cookieService.set('token_access',data[0].token,1,'/');
+      this.cookieService.set('token_access', data[0].token, 1, '/');
 
     })
 
-    if(Object.keys(this.usuario).length>0){
-      //redireccionar
-
-      this.fakeLoading();
-    }else{
-      //mensaje error
-      this.error()
-      this.form.reset();
-
-    }
+    setTimeout(() => {
+      if (Object.keys(this.usuario).length == 0) {
+        //mensaje error
+        this.error()
+        this.form.reset();
+      } else {
+        //redireccionar
+  
+        this.fakeLoading();
+  
+      }
+    },400)
+  
   }
-  error(){
-    this.snackBar.open('Usuario o contraseña ingresado son invalidos','',{
+  error() {
+    this.snackBar.open('Usuario o contraseña ingresado son invalidos', '', {
       duration: 3000,
       horizontalPosition: 'center',
       verticalPosition: 'bottom'
     })
   }
 
-  
-  fakeLoading(){
+
+  fakeLoading() {
     this.loading = true
-    setTimeout(()=>{
+    setTimeout(() => {
 
 
-    this.router.navigate(['dashboard/inicio'])
-    },1500)
-    
+      this.router.navigate(['dashboard/inicio'])
+    }, 1500)
+
   }
 }
